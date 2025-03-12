@@ -17,7 +17,7 @@ class LoginPage extends DataScreen{
     Field<String> username = textField(
       // textAlign: TextAlign.left,
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(bottom: 20, left: 8),
+            contentPadding: EdgeInsets.only(bottom: 15, left: 8),
             border: InputBorder.none,
             floatingLabelBehavior: FloatingLabelBehavior.never,
             label: const Text(
@@ -48,7 +48,7 @@ class LoginPage extends DataScreen{
                 obscure ? Icons.visibility_off : Icons.visibility,
               )
           ),
-          contentPadding: EdgeInsets.only(bottom: 20, left: 8),
+          contentPadding: EdgeInsets.only(bottom: 15, left: 8),
           border: InputBorder.none,
           floatingLabelBehavior: FloatingLabelBehavior.never,
           label: const Text(
@@ -65,188 +65,190 @@ class LoginPage extends DataScreen{
 
     return Scaffold(
       backgroundColor: Color(0xFF2B2B2B),
-      body: Column(
-        children: [
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
 
-          //---------------DESIGN
-          // Align(
-          //   alignment: Alignment.topLeft, // Positions in the top-left corner dynamically
-          //   child: Stack(
-          //       children: [
-          //
-          //           Container(
-          //             width: 200,
-          //             height: 200,
-          //             decoration: ShapeDecoration(
-          //               color: Color(0x477CCCCC),
-          //               shape: OvalBorder(),
-          //             ),
-          //           ),
-          //
-          //           Container(
-          //             width: 200,
-          //             height: 200,
-          //             decoration: ShapeDecoration(
-          //               color: Color(0x477CCCCC),
-          //               shape: OvalBorder(),
-          //             ),
-          //           ),
-          //       ],
-          //     ),
-          //   ),
+            //---------------DESIGN
+            // Align(
+            //   alignment: Alignment.topLeft, // Positions in the top-left corner dynamically
+            //   child: Stack(
+            //       children: [
+            //
+            //           Container(
+            //             width: 200,
+            //             height: 200,
+            //             decoration: ShapeDecoration(
+            //               color: Color(0x477CCCCC),
+            //               shape: OvalBorder(),
+            //             ),
+            //           ),
+            //
+            //           Container(
+            //             width: 200,
+            //             height: 200,
+            //             decoration: ShapeDecoration(
+            //               color: Color(0x477CCCCC),
+            //               shape: OvalBorder(),
+            //             ),
+            //           ),
+            //       ],
+            //     ),
+            //   ),
 
-          SizedBox(height: 30,),
-          Align(
-            alignment: Alignment.topLeft,
-            child: Padding(
-              padding: EdgeInsets.all(13),
-              child: Text('CONCORD',
+            SizedBox(height: 30,),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: EdgeInsets.all(13),
+                child: Text('CONCORD',
+                  style: TextStyle(
+                      color: Color(0xFF555555),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900),
+                ),
+              ),
+            ),
+
+            SizedBox(height: MediaQuery.of(context).size.height*0.15,),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Text(
+                'Welcome to Concord',
                 style: TextStyle(
-                    color: Color(0xFF555555),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w900),
-              ),
-            ),
-          ),
-
-          SizedBox(height: MediaQuery.of(context).size.height*0.15,),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Text(
-              'Welcome to Concord',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontFamily: 'Khmer',
-                fontWeight: FontWeight.w200,
-              ),
-            ),
-          ),
-
-          //---------------USERNAME & PASSWORD
-
-          SizedBox(height: MediaQuery.of(context).size.height*0.2),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: MediaQuery.of(context).size.width*0.85,
-              height: 60,
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontFamily: 'Khmer',
+                  fontWeight: FontWeight.w200,
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: username,
-              ),
             ),
-          ),
 
-          SizedBox(height: 20,),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: MediaQuery.of(context).size.width*0.85,
-              height: 60,
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: password,
-              ),
-            ),
-          ),
+            //---------------USERNAME & PASSWORD
 
-          //---------------FORGOT PASSWORD
-
-          SizedBox(height: 5,),
-          Align(
+            SizedBox(height: MediaQuery.of(context).size.height*0.2),
+            Align(
               alignment: Alignment.center,
-              child: Transform.translate(
-                offset: Offset(-MediaQuery.of(context).size.width*0.26, 0),
-                child: TextButton(
-                    onPressed: () => App.goTo(Forgot()),
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(
-                        color: Color(0xFF47ACBA),
-                        fontSize: 15,
-                        fontFamily: 'Khmer',
-                        fontWeight: FontWeight.w400,
-                      ),
-                    )
-                ),
-              )
-          ),
-
-          //---------------LOGIN BUTTON
-
-          SizedBox(height: 30,),
-          Align(
-              alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: () => login(username.value ?? '', password.value ?? ''),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF2D6C83),
-                  minimumSize: Size(MediaQuery.of(context).size.width*0.85, 85),
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.85,
+                height: 60,
+                decoration: ShapeDecoration(
+                  color: Colors.white,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)
-                  ),
-                  elevation: 5,
-                ),
-                child: Text(
-                  'Continue',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontFamily: 'Khmer',
-                    fontWeight: FontWeight.w400,
+                    borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-              )
-          ),
-
-          //---------------SIGNUP BUTTON
-
-          SizedBox(height: 5,),
-          Align(
-            alignment: Alignment.center,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Don't have an account?",
-                  style: TextStyle(
-                    color: Color(0xFF6C6C6C),
-                    fontSize: 16,
-                    fontFamily: 'Khmer',
-                    fontWeight: FontWeight.w400,
-                  ),
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: username,
                 ),
-                TextButton(
-                    onPressed: () => App.goTo(Signup()),
-                    child: Text('Sign up!',
-                      style: TextStyle(
-                        color: Color(0xFF51ADD4),
-                        fontSize: 16,
-                        fontFamily: 'Heebo',
-                        fontWeight: FontWeight.w700,
-                      ),
-                    )
-                )
-              ],
+              ),
             ),
-          )
 
-          //END
+            SizedBox(height: 20,),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.85,
+                height: 60,
+                decoration: ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: password,
+                ),
+              ),
+            ),
 
-        ],
-      ),
+            //---------------FORGOT PASSWORD
+
+            SizedBox(height: 5,),
+            Align(
+                alignment: Alignment.center,
+                child: Transform.translate(
+                  offset: Offset(-MediaQuery.of(context).size.width*0.26, 0),
+                  child: TextButton(
+                      onPressed: () => App.goTo(Forgot()),
+                      child: Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                          color: Color(0xFF47ACBA),
+                          fontSize: 15,
+                          fontFamily: 'Khmer',
+                          fontWeight: FontWeight.w400,
+                        ),
+                      )
+                  ),
+                )
+            ),
+
+            //---------------LOGIN BUTTON
+
+            SizedBox(height: 30,),
+            Align(
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  onPressed: () => login(username.value ?? '', password.value ?? ''),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF2D6C83),
+                    minimumSize: Size(MediaQuery.of(context).size.width*0.85, 85),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                    ),
+                    elevation: 5,
+                  ),
+                  child: Text(
+                    'Continue',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontFamily: 'Khmer',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                )
+            ),
+
+            //---------------SIGNUP BUTTON
+
+            SizedBox(height: 5,),
+            Align(
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Don't have an account?",
+                    style: TextStyle(
+                      color: Color(0xFF6C6C6C),
+                      fontSize: 16,
+                      fontFamily: 'Khmer',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: () => App.goTo(Signup()),
+                      child: Text('Sign up!',
+                        style: TextStyle(
+                          color: Color(0xFF51ADD4),
+                          fontSize: 16,
+                          fontFamily: 'Heebo',
+                          fontWeight: FontWeight.w700,
+                        ),
+                      )
+                  )
+                ],
+              ),
+            )
+
+            //END
+
+          ],
+        ),
+      )
     );
   }
 
@@ -361,7 +363,7 @@ class Forgot extends DataScreen{
     Field<String> email = textField(
       // textAlign: TextAlign.left,
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(bottom: 20, left: 8,),
+            contentPadding: EdgeInsets.only(bottom: 15, left: 8,),
             border: InputBorder.none,
             floatingLabelBehavior: FloatingLabelBehavior.never,
             label: const Text(
@@ -378,121 +380,123 @@ class Forgot extends DataScreen{
 
     return Scaffold(
       backgroundColor: Color(0xFF2B2B2B),
-      body: Column(
-        children: [
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
 
-          SizedBox(height: 30,),
-          Row(
-            children: [
-              Column(
-                children: [
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(top:1,left: 3),
-                        child: IconButton(
-                            onPressed: () => App.goTo(LoginPage()),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF2B2B2B),
-                              // minimumSize: Size(5, 20),
-                            ),
-                            icon: Icon(Icons.arrow_back_rounded,
-                              color: Colors.white,
-                            )
-                        ),
-                      )
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: Text('CONCORD',
-                      style: TextStyle(
-                          color: Color(0xFF555555),
-                          fontSize: 20,
-                          fontWeight: FontWeight.w900),
+            SizedBox(height: 30,),
+            Row(
+              children: [
+                Column(
+                  children: [
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(top:1,left: 3),
+                          child: IconButton(
+                              onPressed: () => App.goTo(LoginPage()),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xFF2B2B2B),
+                                // minimumSize: Size(5, 20),
+                              ),
+                              icon: Icon(Icons.arrow_back_rounded,
+                                color: Colors.white,
+                              )
+                          ),
+                        )
                     ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text('CONCORD',
+                        style: TextStyle(
+                            color: Color(0xFF555555),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900),
+                      ),
 
-                  ),
-                ],
-              ),
-              Column(
+                    ),
+                  ],
+                ),
+                Column(
 
-              ),
+                ),
 
-            ],
-          ),
-
-          //---------------FORGOT PASSWORD
-
-          SizedBox(height: MediaQuery.of(context).size.height*0.17,),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Text(
-              'Forgot Password?',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontFamily: 'Khmer',
-                fontWeight: FontWeight.w200,
-              ),
+              ],
             ),
-          ),
 
-          //---------------EMAIL
+            //---------------FORGOT PASSWORD
 
-          SizedBox(height: MediaQuery.of(context).size.height*0.2,),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: MediaQuery.of(context).size.width*0.85,
-              height: 60,
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+            SizedBox(height: MediaQuery.of(context).size.height*0.17,),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Text(
+                'Forgot Password?',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontFamily: 'Khmer',
+                  fontWeight: FontWeight.w200,
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: email,
-              ),
             ),
-          ),
 
-          //---------------SEND BUTTON
+            //---------------EMAIL
 
-          SizedBox(height: 33,),
-          Align(
+            SizedBox(height: MediaQuery.of(context).size.height*0.2,),
+            Align(
               alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: () => forgot(email.value ?? ''),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF2D6C83),
-                  minimumSize: Size(MediaQuery.of(context).size.width*0.85, 85),
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.85,
+                height: 60,
+                decoration: ShapeDecoration(
+                  color: Colors.white,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)
-                  ),
-                  elevation: 5,
-                ),
-                child: Text(
-                  'Send',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontFamily: 'Khmer',
-                    fontWeight: FontWeight.bold,
+                    borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-              )
-          ),
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: email,
+                ),
+              ),
+            ),
 
-          //END
+            //---------------SEND BUTTON
 
-        ],
-      ),
+            SizedBox(height: 33,),
+            Align(
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  onPressed: () => forgot(email.value ?? ''),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF2D6C83),
+                    minimumSize: Size(MediaQuery.of(context).size.width*0.85, 85),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                    ),
+                    elevation: 5,
+                  ),
+                  child: Text(
+                    'Send',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontFamily: 'Khmer',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                )
+            ),
+
+            //END
+
+          ],
+        ),
+      )
     );
   }
 
@@ -511,7 +515,7 @@ class Otp extends DataScreen{
     Field<String> otp = textField(
       // textAlign: TextAlign.left,
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(bottom: 20, left: 8,),
+            contentPadding: EdgeInsets.only(bottom: 15, left: 8,),
             border: InputBorder.none,
             floatingLabelBehavior: FloatingLabelBehavior.never,
             label: const Text(
@@ -528,137 +532,139 @@ class Otp extends DataScreen{
 
     return Scaffold(
       backgroundColor: Color(0xFF2B2B2B),
-      body: Column(
-        children: [
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
 
-          SizedBox(height: 30,),
-          Row(
-            children: [
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(top:1,left: 3),
-                    child: IconButton(
-                        onPressed: () => App.goTo(Forgot()),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF2B2B2B),
-                          // minimumSize: Size(5, 20),
-                        ),
-                        icon: Icon(Icons.arrow_back_rounded,
-                          color: Colors.white,
-                        )
-                    ),
-                  )
-              ),
-
-              Align(
-                alignment: Alignment.center,
-                child: Text('CONCORD',
-                  style: TextStyle(
-                      color: Color(0xFF555555),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900),
-                ),
-              ),
-
-            ],
-          ),
-
-          SizedBox(height: MediaQuery.of(context).size.height*0.17,),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Text(
-              'Check your email',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontFamily: 'Khmer',
-                fontWeight: FontWeight.w200,
-              ),
-            ),
-          ),
-
-          //---------------OTP
-
-          SizedBox(height: MediaQuery.of(context).size.height*0.2),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: MediaQuery.of(context).size.width*0.85,
-              height: 60,
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: otp,
-              ),
-            ),
-          ),
-
-          SizedBox(height: 5,),
-          Align(
-            alignment: Alignment.center,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            SizedBox(height: 30,),
+            Row(
               children: [
-                Text("Didn't get an OTP?",
-                  style: TextStyle(
-                    color: Color(0xFF6C6C6C),
-                    fontSize: 16,
-                    fontFamily: 'Khmer',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                TextButton(
-                    onPressed: ()=>App.message('Resent!'),
-                    child: Text('Resend',
-                      style: TextStyle(
-                        color: Color(0xFF51ADD4),
-                        fontSize: 16,
-                        fontFamily: 'Heebo',
-                        fontWeight: FontWeight.w700,
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(top:1,left: 3),
+                      child: IconButton(
+                          onPressed: () => App.goTo(Forgot()),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF2B2B2B),
+                            // minimumSize: Size(5, 20),
+                          ),
+                          icon: Icon(Icons.arrow_back_rounded,
+                            color: Colors.white,
+                          )
                       ),
                     )
-                )
+                ),
+
+                Align(
+                  alignment: Alignment.center,
+                  child: Text('CONCORD',
+                    style: TextStyle(
+                        color: Color(0xFF555555),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900),
+                  ),
+                ),
+
               ],
             ),
-          ),
 
-          //---------------VERIFY OTP
+            SizedBox(height: MediaQuery.of(context).size.height*0.17,),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Text(
+                'Check your email',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontFamily: 'Khmer',
+                  fontWeight: FontWeight.w200,
+                ),
+              ),
+            ),
 
-          SizedBox(height: 30,),
-          Align(
+            //---------------OTP
+
+            SizedBox(height: MediaQuery.of(context).size.height*0.2),
+            Align(
               alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: () => otp_verify(otp.value ?? ''),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF2D6C83),
-                  minimumSize: Size(MediaQuery.of(context).size.width*0.85, 85),
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.85,
+                height: 60,
+                decoration: ShapeDecoration(
+                  color: Colors.white,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)
-                  ),
-                  elevation: 5,
-                ),
-                child: Text(
-                  'Verify OTP',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontFamily: 'Khmer',
-                    fontWeight: FontWeight.w400,
+                    borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-              )
-          ),
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: otp,
+                ),
+              ),
+            ),
 
-          //END
+            SizedBox(height: 5,),
+            Align(
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Didn't get an OTP?",
+                    style: TextStyle(
+                      color: Color(0xFF6C6C6C),
+                      fontSize: 16,
+                      fontFamily: 'Khmer',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: ()=>App.message('Resent!'),
+                      child: Text('Resend',
+                        style: TextStyle(
+                          color: Color(0xFF51ADD4),
+                          fontSize: 16,
+                          fontFamily: 'Heebo',
+                          fontWeight: FontWeight.w700,
+                        ),
+                      )
+                  )
+                ],
+              ),
+            ),
 
-        ],
-      ),
+            //---------------VERIFY OTP
+
+            SizedBox(height: 30,),
+            Align(
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  onPressed: () => otp_verify(otp.value ?? ''),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF2D6C83),
+                    minimumSize: Size(MediaQuery.of(context).size.width*0.85, 85),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                    ),
+                    elevation: 5,
+                  ),
+                  child: Text(
+                    'Verify OTP',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontFamily: 'Khmer',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                )
+            ),
+
+            //END
+
+          ],
+        ),
+      )
     );
   }
 
@@ -689,7 +695,7 @@ class Reset extends DataScreen{
                 obscure ? Icons.visibility_off : Icons.visibility,
               )
           ),
-          contentPadding: EdgeInsets.only(bottom: 20, left: 8),
+          contentPadding: EdgeInsets.only(bottom: 15, left: 8),
           border: InputBorder.none,
           floatingLabelBehavior: FloatingLabelBehavior.never,
           label: const Text(
@@ -718,7 +724,7 @@ class Reset extends DataScreen{
                 obscure ? Icons.visibility_off : Icons.visibility,
               )
           ),
-          contentPadding: EdgeInsets.only(bottom: 20, left: 8),
+          contentPadding: EdgeInsets.only(bottom: 15, left: 8),
           border: InputBorder.none,
           floatingLabelBehavior: FloatingLabelBehavior.never,
           label: const Text(
@@ -735,127 +741,129 @@ class Reset extends DataScreen{
 
     return Scaffold(
       backgroundColor: Color(0xFF2B2B2B),
-      body: Column(
-        children: [
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
 
-          SizedBox(height: 30,),
-          Row(
-            children: [
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(top:1,left: 3),
-                    child: IconButton(
-                        onPressed: () => App.goTo(Forgot()),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF2B2B2B),
-                          // minimumSize: Size(5, 20),
-                        ),
-                        icon: Icon(Icons.arrow_back_rounded,
-                          color: Colors.white,
-                        )
-                    ),
-                  )
-              ),
+            SizedBox(height: 30,),
+            Row(
+              children: [
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(top:1,left: 3),
+                      child: IconButton(
+                          onPressed: () => App.goTo(Forgot()),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF2B2B2B),
+                            // minimumSize: Size(5, 20),
+                          ),
+                          icon: Icon(Icons.arrow_back_rounded,
+                            color: Colors.white,
+                          )
+                      ),
+                    )
+                ),
 
-              Align(
-                alignment: Alignment.center,
-                child: Text('CONCORD',
-                  style: TextStyle(
-                      color: Color(0xFF555555),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text('CONCORD',
+                    style: TextStyle(
+                        color: Color(0xFF555555),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900),
+                  ),
+                ),
+
+              ],
+            ),
+
+            SizedBox(height: MediaQuery.of(context).size.height*0.15,),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Text(
+                'Reset Password',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontFamily: 'Khmer',
+                  fontWeight: FontWeight.w200,
                 ),
               ),
-
-            ],
-          ),
-
-          SizedBox(height: MediaQuery.of(context).size.height*0.15,),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Text(
-              'Reset Password',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontFamily: 'Khmer',
-                fontWeight: FontWeight.w200,
-              ),
             ),
-          ),
 
-          //---------------PASSWORDS
+            //---------------PASSWORDS
 
-          SizedBox(height: MediaQuery.of(context).size.height*0.2),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: MediaQuery.of(context).size.width*0.85,
-              height: 60,
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: password,
-              ),
-            ),
-          ),
-
-          SizedBox(height: 20,),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: MediaQuery.of(context).size.width*0.85,
-              height: 60,
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: confirm_password,
-              ),
-            ),
-          ),
-
-          //---------------RESET BUTTON
-
-          SizedBox(height: 40,),
-          Align(
+            SizedBox(height: MediaQuery.of(context).size.height*0.2),
+            Align(
               alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: () => reset_verify(password.value ?? '', confirm_password.value ?? ''),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF2D6C83),
-                  minimumSize: Size(MediaQuery.of(context).size.width*0.85, 85),
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.85,
+                height: 60,
+                decoration: ShapeDecoration(
+                  color: Colors.white,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)
-                  ),
-                  elevation: 5,
-                ),
-                child: Text(
-                  'Reset',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontFamily: 'Khmer',
-                    fontWeight: FontWeight.w400,
+                    borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-              )
-          ),
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: password,
+                ),
+              ),
+            ),
 
-          //END
+            SizedBox(height: 20,),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.85,
+                height: 60,
+                decoration: ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: confirm_password,
+                ),
+              ),
+            ),
 
-        ],
-      ),
+            //---------------RESET BUTTON
+
+            SizedBox(height: 40,),
+            Align(
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  onPressed: () => reset_verify(password.value ?? '', confirm_password.value ?? ''),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF2D6C83),
+                    minimumSize: Size(MediaQuery.of(context).size.width*0.85, 85),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                    ),
+                    elevation: 5,
+                  ),
+                  child: Text(
+                    'Reset',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontFamily: 'Khmer',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                )
+            ),
+
+            //END
+
+          ],
+        ),
+      )
     );
   }
 
@@ -878,7 +886,7 @@ class Signup extends DataScreen{
     Field<String> signupUsername = textField(
       // textAlign: TextAlign.left,
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(bottom: 20, left: 8),
+            contentPadding: EdgeInsets.only(bottom: 15, left: 8),
             border: InputBorder.none,
             floatingLabelBehavior: FloatingLabelBehavior.never,
             label: const Text(
@@ -909,7 +917,7 @@ class Signup extends DataScreen{
                 obscure ? Icons.visibility_off : Icons.visibility,
               )
           ),
-          contentPadding: EdgeInsets.only(bottom: 20, left: 8),
+          contentPadding: EdgeInsets.only(bottom: 15, left: 8),
           border: InputBorder.none,
           floatingLabelBehavior: FloatingLabelBehavior.never,
           label: const Text(
@@ -955,178 +963,180 @@ class Signup extends DataScreen{
 
     return Scaffold(
       backgroundColor: Color(0xFF2B2B2B),
-      body: Column(
-        children: [
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
 
-          SizedBox(height: 30,),
-          Row(
-            children: [
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(top:1,left: 3),
-                    child: IconButton(
-                        onPressed: () => App.goTo(LoginPage()),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF2B2B2B),
-                          // minimumSize: Size(5, 20),
-                        ),
-                        icon: Icon(Icons.arrow_back_rounded,
-                          color: Colors.white,
-                        )
-                    ),
-                  )
-              ),
-
-              Align(
-                alignment: Alignment.center,
-                child: Text('CONCORD',
-                  style: TextStyle(
-                      color: Color(0xFF555555),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900),
-                ),
-              ),
-
-            ],
-          ),
-
-          SizedBox(height: MediaQuery.of(context).size.height*0.15,),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Text(
-              'New to Concord?',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                fontFamily: 'Khmer',
-                fontWeight: FontWeight.w200,
-              ),
-            ),
-          ),
-
-          //---------------USERNAME, PASSWORD, CONFIRM PASSWORD
-
-          SizedBox(height: MediaQuery.of(context).size.height*0.2),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: MediaQuery.of(context).size.width*0.85,
-              height: 60,
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: signupUsername,
-              ),
-            ),
-          ),
-
-          SizedBox(height: 20,),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: MediaQuery.of(context).size.width*0.85,
-              height: 60,
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: signupPassword,
-              ),
-            ),
-          ),
-
-          SizedBox(height: 20,),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: MediaQuery.of(context).size.width*0.85,
-              height: 60,
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: signupConfirmPassword,
-              ),
-            ),
-          ),
-
-          //---------------REGISTER BUTTON
-
-          SizedBox(height: 36,),
-          Align(
-              alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: () =>
-                    register(signupUsername.value ?? '', signupPassword.value ?? '', signupConfirmPassword.value ?? ''),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF2D6C83),
-                  minimumSize: Size(MediaQuery.of(context).size.width*0.85, 85),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)
-                  ),
-                  elevation: 5,
-                ),
-                child: Text(
-                  'Create your account',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontFamily: 'Khmer',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              )
-          ),
-
-          //---------------SIGNUP BUTTON
-
-          SizedBox(height: 5,),
-          Align(
-            alignment: Alignment.center,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            SizedBox(height: 30,),
+            Row(
               children: [
-                Text("Already have an account?",
-                  style: TextStyle(
-                    color: Color(0xFF6C6C6C),
-                    fontSize: 16,
-                    fontFamily: 'Khmer',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                TextButton(
-                    onPressed: ()=>App.goTo(LoginPage()),
-                    child: Text('Login',
-                      style: TextStyle(
-                        color: Color(0xFF51ADD4),
-                        fontSize: 16,
-                        fontFamily: 'Heebo',
-                        fontWeight: FontWeight.w700,
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(top:1,left: 3),
+                      child: IconButton(
+                          onPressed: () => App.goTo(LoginPage()),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF2B2B2B),
+                            // minimumSize: Size(5, 20),
+                          ),
+                          icon: Icon(Icons.arrow_back_rounded,
+                            color: Colors.white,
+                          )
                       ),
                     )
-                )
+                ),
+
+                Align(
+                  alignment: Alignment.center,
+                  child: Text('CONCORD',
+                    style: TextStyle(
+                        color: Color(0xFF555555),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900),
+                  ),
+                ),
+
               ],
             ),
-          )
 
-          //END
+            SizedBox(height: MediaQuery.of(context).size.height*0.15,),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Text(
+                'New to Concord?',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontFamily: 'Khmer',
+                  fontWeight: FontWeight.w200,
+                ),
+              ),
+            ),
 
-        ],
-      ),
+            //---------------USERNAME, PASSWORD, CONFIRM PASSWORD
+
+            SizedBox(height: MediaQuery.of(context).size.height*0.2),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.85,
+                height: 60,
+                decoration: ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: signupUsername,
+                ),
+              ),
+            ),
+
+            SizedBox(height: 20,),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.85,
+                height: 60,
+                decoration: ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: signupPassword,
+                ),
+              ),
+            ),
+
+            SizedBox(height: 20,),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.85,
+                height: 60,
+                decoration: ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: signupConfirmPassword,
+                ),
+              ),
+            ),
+
+            //---------------REGISTER BUTTON
+
+            SizedBox(height: 36,),
+            Align(
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  onPressed: () =>
+                      register(signupUsername.value ?? '', signupPassword.value ?? '', signupConfirmPassword.value ?? ''),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF2D6C83),
+                    minimumSize: Size(MediaQuery.of(context).size.width*0.85, 85),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                    ),
+                    elevation: 5,
+                  ),
+                  child: Text(
+                    'Create your account',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontFamily: 'Khmer',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                )
+            ),
+
+            //---------------SIGNUP BUTTON
+
+            SizedBox(height: 5,),
+            Align(
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Already have an account?",
+                    style: TextStyle(
+                      color: Color(0xFF6C6C6C),
+                      fontSize: 16,
+                      fontFamily: 'Khmer',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: ()=>App.goTo(LoginPage()),
+                      child: Text('Login',
+                        style: TextStyle(
+                          color: Color(0xFF51ADD4),
+                          fontSize: 16,
+                          fontFamily: 'Heebo',
+                          fontWeight: FontWeight.w700,
+                        ),
+                      )
+                  )
+                ],
+              ),
+            )
+
+            //END
+
+          ],
+        ),
+      )
     );
   }
 
